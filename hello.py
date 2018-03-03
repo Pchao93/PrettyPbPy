@@ -6,6 +6,8 @@ import json
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 app = Flask(__name__)
 # app.debug = True
@@ -55,10 +57,13 @@ def fetchHighlights(game_id, event_id):
     opts = ChromeOptions()
     opts.binary_location = chrome_bin
     driver = webdriver.Chrome(chrome_options=opts)
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(100)
     print("searching")
     driver.get(f"https://stats.nba.com/events/?flag=1&GameID={game_id}&GameEventID={event_id}&Season=2017-18&sct=plot")
-    video = driver.find_element_by_id("statsPlayer_embed_statsPlayer")
+    print("page visited")
+
+    video = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "statsPlayer_embed_statsPlayer")))
+    # video = driver.find_element_by_id("statsPlayer_embed_statsPlayer")
     print("found video")
     src = video.get_attribute("src")
     # time.sleep(2)
