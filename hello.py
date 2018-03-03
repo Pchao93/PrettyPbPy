@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 app = Flask(__name__)
-app.debug = True
+# app.debug = True
 @app.route('/')
 def render_index():
    return render_template("index.html")
@@ -63,4 +63,5 @@ def fetchGames(date):
 
 
 if __name__ == '__main__':
-   app.run(os.environ['PORT'] or 5000)
+    port = int(os.environ.get('PORT', 33507))
+    app.run(host='0.0.0.0', port=port)
