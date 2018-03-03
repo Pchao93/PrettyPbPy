@@ -37,14 +37,18 @@ def fetchPlaybyPlay(game_id):
 
 @app.route('/api/highlights/<game_id>/<event_id>')
 def fetchHighlights(game_id, event_id):
+    #/api/highlights/0021700833/4
   #let highlightURL = await grabHighlight(0021700833, 4);
     driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(60)
+    print("searching")
     driver.get(f"https://stats.nba.com/events/?flag=1&GameID={game_id}&GameEventID={event_id}&Season=2017-18&sct=plot")
     video = driver.find_element_by_id("statsPlayer_embed_statsPlayer")
+    print("found video")
     src = video.get_attribute("src")
     # time.sleep(2)
     while (src == "" or src == 'https://s.cdn.turner.com/xslo/cvp/assets/video/blank.mp4'):
+        print("looking for source")
       src = video.get_attribute('src')
     driver.quit();
 
