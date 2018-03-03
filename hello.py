@@ -3,6 +3,7 @@ from flask import jsonify
 import urllib.request
 import requests
 import json
+import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -62,4 +63,4 @@ def fetchGames(date):
 
 
 if __name__ == '__main__':
-   app.run()
+   app.run(os.environ['PORT'] || PORT)
