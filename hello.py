@@ -49,7 +49,7 @@ def fetchHighlights(game_id, event_id):
     # time.sleep(2)
     while (src == "" or src == 'https://s.cdn.turner.com/xslo/cvp/assets/video/blank.mp4'):
         print("looking for source")
-      src = video.get_attribute('src')
+        src = video.get_attribute('src')
     driver.quit();
 
     return src;
