@@ -39,7 +39,8 @@ def fetchPlaybyPlay(game_id):
 def fetchHighlights(game_id, event_id):
     #/api/highlights/0021700833/4
   #let highlightURL = await grabHighlight(0021700833, 4);
-    driver = webdriver.Chrome()
+    chrome_exec_shim = os.environ.get("GOOGLE_CHROME_SHIM", "chromedriver")
+    driver = webdriver.Chrome(executable_path=chrome_exec_shim)
     driver.implicitly_wait(60)
     print("searching")
     driver.get(f"https://stats.nba.com/events/?flag=1&GameID={game_id}&GameEventID={event_id}&Season=2017-18&sct=plot")
