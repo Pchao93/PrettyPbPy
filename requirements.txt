@@ -1,4 +1,4 @@
-
+flask==0.12.2
 Jinja2==2.9.6
 requests==2.18.4
 selenium==3.8.1
