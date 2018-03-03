@@ -63,4 +63,4 @@ def fetchGames(date):
 
 
 if __name__ == '__main__':
-   app.run(os.environ['PORT'] || PORT)
+   app.run(os.environ['PORT'] or 5000)
