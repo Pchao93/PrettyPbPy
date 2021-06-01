@@ -6,6 +6,6 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 requests==2.18.4
 selenium==3.8.1
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==15.1.0
 flask==0.12.2
