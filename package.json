@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "eslint": "^4.17.0",
-    "webpack": "^3.4.1"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
